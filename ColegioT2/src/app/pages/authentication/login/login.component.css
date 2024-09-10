@@ -1,0 +1,47 @@
+.cont {
+    max-width: 30rem;
+    padding-top: 4rem;
+    height: 100vh;
+}
+
+.pa {
+    background-color: black;
+    height: 100vh;
+}
+
+div img {
+    width: 30%;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    width: 10rem;
+    margin-top: 3rem;
+}
+
+
+
+.card {
+    padding: 1rem;
+}
+
+.example-container mat-form-field+mat-form-field {
+    margin-left: 8px;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    
+}
