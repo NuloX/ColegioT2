@@ -8,6 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 //import { ToastrService } from 'ngx-toastr';  // Asegúrate de tener Toastr importado si lo usas
 import { PLATFORM_ID} from '@angular/core';
+import { ApiUserDataService } from '../../../shared/services/apiUserData.service';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private apiUserData:ApiUserDataService,
     //private toastr: ToastrService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -45,24 +47,39 @@ export class LoginComponent {
   ngOnInit(): void { }
 
   login(): void {
+    
+    
+    // Buscar si existe un usuario con el email y contraseña correctos
+    
+
+    
     if (isPlatformBrowser(this.platformId)) {
       if (this.myForm.invalid) {
         this.myForm.markAllAsTouched();
         return;
       }
+      const users =this.apiUserData.getApiUsers();
 
       // Verificamos si el usuario y la contraseña coinciden con los valores predeterminados
       const usuarioIngresado = this.myForm.value.usuario;
       const contrasenaIngresada = this.myForm.value.contrasena;
 
-      if (usuarioIngresado === 'Admin' && contrasenaIngresada === 'admin') {
-        // Simula almacenar datos en el servicio de autenticación
-        //this.toastr.success('Logged in successfully', 'Success');
-        this.router.navigateByUrl('/admin/cursos');
-      } else {
-        // Si los datos no coinciden, muestra un error
-        //this.toastr.error('Incorrect username or password', 'Error');
-      }
+      const foundUser = users.find(user => user.email === usuarioIngresado && user.password === contrasenaIngresada);
+      if (foundUser) {
+        if (foundUser.rol === 'profesor') {
+            // Redirigir a la vista del profesor
+            console.log('Redirigiendo a la vista de profesor');
+            this.router.navigateByUrl('/admin/cursos');
+            // Aquí podrías hacer algo como: this.router.navigate(['/profesor']);
+        } else if (foundUser.rol === 'alumno') {
+            // Redirigir a la vista del alumno
+            console.log('Redirigiendo a la vista de alumno');
+            this.router.navigateByUrl('/home/actividades');
+            // Aquí podrías hacer algo como: this.router.navigate(['/alumno']);
+        }
+    } else {
+        console.log('Correo o contraseña incorrectos');
+    }
     }
   }
 
