@@ -5,7 +5,7 @@
 }
 
 .pa {
-    background-color: black;
+    background-color: #A9E1E9;
     height: 100vh;
 }
 
@@ -15,22 +15,34 @@ div img {
 }
 
 .btn {
-    background-color: black;
+    background-color: #003E55;
     color: white;
     width: 10rem;
     margin-top: 3rem;
 }
 
-
-
+#log{
+    margin-bottom: 3rem;
+}
+.img{
+    width: 50%;
+    height:150px;
+    background-image: url("../../../../assets/sombrero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+}
 .card {
     padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .example-container mat-form-field+mat-form-field {
     margin-left: 8px;
 }
-
+label{
+    margin-top: 5px;
+}
 .example-right-align {
     text-align: right;
 }
