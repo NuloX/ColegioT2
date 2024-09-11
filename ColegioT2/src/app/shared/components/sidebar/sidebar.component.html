@@ -1,16 +1,18 @@
 <div class="container-fluid vh-100" style="padding:0">
     <a class="d-flex text-decoration-none text-black p-4">
-        <h1>Imagen</h1>
+        <div class="col-12 d-flex justify-content-center"id="log">
+            <div class="img"></div>
+        </div>
     </a>
     <ul class="nav nav-pills flex-column" id="menu">
         <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" routerLink="/admin/cursos">
-                <span class="d-sm-inline">Cursos</span>
+                <mat-icon>chrome_reader_mode</mat-icon><span class="d-sm-inline">Cursos</span>
             </a>
         </li>
         <li  class="nav-item">
             <a class="nav-link" routerLinkActive="active" routerLink="/admin/evaluaciones">
-                <span class="d-sm-inline">Evaluaciones</span>
+                <mat-icon>assignment</mat-icon><span class="d-sm-inline">Evaluaciones</span>
             </a>
         </li>
     </ul>
