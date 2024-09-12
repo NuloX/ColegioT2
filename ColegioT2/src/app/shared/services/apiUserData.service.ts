@@ -16,7 +16,7 @@ export class ApiUserDataService {
             {
                 user: 'User 02',
                 email: 'alumno1@colegio.com',
-                password: '123',
+                password: '12345',
                 rol: 'alumno'
             },
             {

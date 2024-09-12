@@ -1,19 +1,38 @@
-<div class="container-fluid vh-100" style="padding:0">
+<div class="container-fluid d-flex vh-100" style="padding:0">
+    <div>
+        <a class="d-flex text-decoration-none text-black p-4">
+            <div class="col-12 d-flex justify-content-center"id="log">
+                <div class="img"></div>
+            </div>
+        </a>
+        <ul class="nav nav-pills flex-column" id="menu">
+            <li class="nav-item" *ngIf="rol === 'profesor'">
+                <a class="nav-link" routerLinkActive="active" routerLink="/profesor/cursos">
+                    <mat-icon>book</mat-icon><span class="d-sm-inline">Cursos</span>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="rol === 'profesor'">
+                <a class="nav-link" routerLinkActive="active" routerLink="/profesor/evaluaciones">
+                  <mat-icon>assignment</mat-icon><span class="d-sm-inline">Evaluaciones</span>
+                </a>
+              </li>
+              
+              <!-- Menú para alumnos -->
+              <li class="nav-item" *ngIf="rol === 'alumno'">
+                <a class="nav-link" routerLinkActive="active" routerLink="/alumno/actividades">
+                  <mat-icon>chrome_reader_mode</mat-icon><span class="d-sm-inline">Actividades</span>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="rol === 'alumno'">
+                <a class="nav-link" routerLinkActive="active" routerLink="/alumno/notas">
+                    <mat-icon>school</mat-icon><span class="d-sm-inline">Notas</span>
+                </a>
+            </li>
+        </ul>
+    </div>
     <a class="d-flex text-decoration-none text-black p-4">
-        <div class="col-12 d-flex justify-content-center"id="log">
-            <div class="img"></div>
+        <div class="col-12 d-flex justify-content-center">
+                <span (click)="logout()" id="cerrar"><mat-icon>power_settings_new</mat-icon>  Cerrar sesión</span>
         </div>
     </a>
-    <ul class="nav nav-pills flex-column" id="menu">
-        <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/admin/cursos">
-                <mat-icon>chrome_reader_mode</mat-icon><span class="d-sm-inline">Cursos</span>
-            </a>
-        </li>
-        <li  class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/admin/evaluaciones">
-                <mat-icon>assignment</mat-icon><span class="d-sm-inline">Evaluaciones</span>
-            </a>
-        </li>
-    </ul>
 </div>

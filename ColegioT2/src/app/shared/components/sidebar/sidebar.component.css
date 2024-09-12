@@ -6,6 +6,10 @@ span{
     cursor: pointer;
     
 }
+.container-fluid{
+    flex-direction: column;
+    justify-content: space-between;
+}
 .nav-link mat-icon {
     margin-bottom: -5px; 
 }
@@ -15,9 +19,6 @@ span{
 img{
     margin-top: 10px;
     margin-bottom: 30px;
-}
- mat-icon {
-    margin-top: 10px; 
 }
 a.nav-link{
     font-family: "Oswald", sans-serif;
@@ -66,4 +67,9 @@ span{
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
+}
+#cerrar{
+    display: flex;
+    align-items: center;
+    color:#003F56;
 }
