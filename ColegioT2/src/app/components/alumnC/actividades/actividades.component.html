@@ -1,1 +1,17 @@
-<p>actividades works!</p>
+
+<div *ngFor="let acti of actividad.evalu" >
+    <mat-card class="curso-card cont-grid" appearance="outlined">
+        <mat-card-header>
+        <div mat-card-avatar class="curso-header-image"></div>
+        <mat-card-title>{{getCurso(acti.idEva)}}</mat-card-title>
+        <mat-card-subtitle>{{acti.titulo}}</mat-card-subtitle>
+        </mat-card-header>
+        <!--<img mat-card-image src="https://www.vocaeditorial.com/blog/media/plan-lector-primaria-1175x783.jpg" alt="Photo of a Shiba Inu">-->
+        <mat-card-content class="card-descrip">
+        Descripción: {{acti.descripcion}}
+        </mat-card-content>
+        <mat-card-actions class="btnC">
+        <button mat-button>Ingresar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
