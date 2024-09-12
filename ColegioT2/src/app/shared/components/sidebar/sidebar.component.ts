@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { ApiUserDataService } from '../../services/apiUserData.service';
+import { AuthService } from '../../services/auth.service';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive,MatIconModule],
+  imports: [RouterModule,RouterLink,RouterLinkActive,MatIconModule,CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
@@ -16,12 +18,12 @@ export class SidebarComponent implements OnInit{
 
   sidemenu1: boolean = false;
   sidemenu2: boolean = false;
-
-  constructor(private apiDataUser:ApiUserDataService){
+  rol: string | null = null;
+  constructor(private apiDataUser:ApiUserDataService,private auth:AuthService,private router: Router, @Inject(PLATFORM_ID) private platformId: Object,private authService: AuthService){
 
   }
   ngOnInit(): void {
-    
+    this.rol = this.authService.obtenerUsuario()?.title;
   }
   toggleCollapse(collapseNumber: number) {
     if (collapseNumber === 1) {
@@ -34,6 +36,15 @@ export class SidebarComponent implements OnInit{
       /*if (!this.sidemenu2Collapsed) {
         this.sidemenu1Collapsed = true; // Cerrar el otro collapse si se abre este
       }*/
+    }
+  }
+  logout() {
+    if (isPlatformBrowser(this.platformId)) {
+
+        this.auth.cerrarSesion();
+          
+    } else {
+      console.log('ta mal')
     }
   }
 }
