@@ -1,5 +1,6 @@
 .curso-card {
-    max-width: 350px;
+    max-width: 300px;
+    min-height: 380px;
   }
   
 .curso-header-image {
@@ -8,16 +9,19 @@
 }
 
 .btnC{
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-.cont-flex{
+.conte-flex{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    grid-gap: 20px;
 }
 
-mat-card {
-    flex: 1 1 calc(33% - 20px); /* Ajusta el ancho para que se muestren 3 tarjetas por fila */
-    margin: 10px; /* Margen opcional para separación */
-  }
+.divi-cont-flex{
+    display: flex;
+    min-height: 12px;
+}
