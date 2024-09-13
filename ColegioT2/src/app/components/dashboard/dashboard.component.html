@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="card mt-0 radius-0">
+        <div class="card-body">
+            <div class="button-container">
+                <div>
+                    <button type="button" class="btn btn-info me-2">Curso</button>
+                    <button type="button" class="btn btn-info">Grado</button>
+                </div>
+                <button type="button" class="btn btn-info">Crear nueva&nbsp;<i class="bi bi-plus"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-blue text-white">
+                <div class="inner">
+                    <h3> 130 </h3>
+                    <p> Estudiantes en el curso </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                </div>
+                <a href="#" class="card-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-orange text-white">
+                <div class="inner">
+                    <h3> 5464 </h3>
+                    <p> Estudiantes ... </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                </div>
+                <a href="#" class="card-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-green text-white">
+                <div class="inner">
+                    <h3> 300 </h3>
+                    <p>Estudiantes aprobados </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                </div>
+                <a href="#" class="card-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-red text-white">
+                <div class="inner">
+                    <h3> 723 </h3>
+                    <p> Estudiantes desaprobados </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-graduation-cap"></i>
+                </div>
+                <a href="#" class="card-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mt-4">
+            <select class="form-select" aria-label="Small select example" (change)="onSelectChange($event)">
+              <option value="inferencial" selected>Inferencial</option>
+              <option value="critico">Crítico</option>
+              <option value="opcion3">Opción 3</option>
+            </select>
+          </div>
+          <div class="col-lg-8 col-xl-9">
+            <div class="card-box">
+              <div>
+                <canvas id="chartline"></canvas>
+              </div>
+            </div>
+          </div>
+        <div class="col-xl-3 col-lg-4">
+            <div class=" card-box">
+                <div class="member-card">
+                    <div class="text-left m-t-40">
+                        <p class="text-muted font-13"><strong>Estudiantes aprobados </strong> <span class="m-l-15">
+                            </span></p>
+                        <div class="cards">
+                            <div class="card card-aprov red p-3">
+                            </div>
+                        </div>
+                        <p class="text-muted font-13 mt-2"><strong>Estudiantes desaprobados </strong> <span
+                                class="m-l-15">
+                            </span></p>
+                        <div class="cards">
+                            <div class="card card-desaprov p-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
