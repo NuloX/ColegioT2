@@ -1,1 +1,19 @@
 <app-button></app-button>
+<div *ngFor="let eva of evaluaciones.grado">
+    <div>
+        <mat-card-title>{{eva.anho}} Año</mat-card-title>
+        <div *ngFor="let cur of evaluaciones.cur">
+        <mat-card class="curso-card cont-grid" appearance="outlined">
+            <mat-card-header>
+            <mat-card-title>{{cur.nombre}}</mat-card-title>
+            <mat-card-subtitle>{{getSalon(cur.idSa)}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="card-descrip">Actividad-{{cur.idCur}}</mat-card-content>
+            <mat-card-content class = "card-nota">Participantes: 18</mat-card-content>
+            <mat-card-actions class="btnC">
+            <button mat-button>Revisar</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    </div>
+</div>

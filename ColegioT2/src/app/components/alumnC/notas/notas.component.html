@@ -1,1 +1,13 @@
-<p>notas works!</p>
+<div *ngFor="let nota of notas.cur" >
+    <mat-card class="curso-card cont-grid" appearance="outlined">
+        <mat-card-header>
+        <mat-card-title>{{nota.nombre}}</mat-card-title>
+        </mat-card-header>
+        <!--<img mat-card-image src="https://www.vocaeditorial.com/blog/media/plan-lector-primaria-1175x783.jpg" alt="Photo of a Shiba Inu">-->
+        <mat-card-content class="card-descrip">Actividad-{{nota.idCur}}</mat-card-content>
+        <mat-card-content class = "card-nota">18</mat-card-content>
+        <mat-card-actions class="btnC">
+        <button mat-button>Ingresar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

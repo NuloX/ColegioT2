@@ -1,0 +1,27 @@
+.curso-card {
+    max-width: 300px;
+    min-height: 380px;
+  }
+  
+.curso-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.btnC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.conte-flex{
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+}
+
+.divi-cont-flex{
+    display: flex;
+    min-height: 12px;
+}
