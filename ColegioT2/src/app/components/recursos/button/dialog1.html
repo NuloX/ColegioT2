@@ -1,0 +1,51 @@
+<h2 mat-dialog-title class="modal-title">Complete los campos: </h2>
+
+<mat-dialog-content>
+    <div class="form-group">
+        <p>Grado:</p>
+        <mat-form-field>
+            <mat-select>
+                @for (grado of grados; track grado) {
+                <mat-option [value]="grado.value">{{grado.viewValue}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <p>Sección:</p>
+        <mat-form-field>
+            <mat-select>
+                @for (seccion of secciones; track seccion) {
+                <mat-option [value]="seccion.value">{{seccion.viewValue}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <p>Curso:</p>
+        <mat-form-field>
+            <mat-select>
+                @for (curso of cursos; track curso) {
+                <mat-option [value]="curso.value">{{curso.viewValue}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <p>Fecha límite:</p>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-button class="dialog-button" (click)="onNoClick()">Cancelar</button>
+    <button mat-button class="dialog-button" (click)="openSecondDialog()">Siguiente</button>
+</mat-dialog-actions>

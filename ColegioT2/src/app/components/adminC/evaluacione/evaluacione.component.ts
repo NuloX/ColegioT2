@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { ButtonComponent } from '../../recursos/button/button.component';
 
 @Component({
   selector: 'app-evaluacione',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [ButtonComponent, CommonModule, MatCardModule, MatButtonModule],
   templateUrl: './evaluacione.component.html',
-  styleUrl: './evaluacione.component.css'
+  styleUrls: ['./evaluacione.component.css']
 })
 export class EvaluacioneComponent {
   cur= [

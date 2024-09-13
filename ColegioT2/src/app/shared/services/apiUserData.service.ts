@@ -30,6 +30,12 @@ export class ApiUserDataService {
                 email: 'alumno2@colegio.com',
                 password: '123',
                 rol: 'alumno'
+            },
+            {
+                user: 'User 05',
+                email: 'asd',
+                password: 'asd',
+                rol: 'profesor'
             }
         ];
     }
