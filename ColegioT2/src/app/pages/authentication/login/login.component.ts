@@ -8,6 +8,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 //import { ToastrService } from 'ngx-toastr';  // Asegúrate de tener Toastr importado si lo usas
 import { PLATFORM_ID} from '@angular/core';
+import { ApiUserDataService } from '../../../shared/services/apiUserData.service';
+import { AuthService } from '../../../shared/services/auth.service';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +33,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private apiUserData:ApiUserDataService,
+    private auth:AuthService,
     //private toastr: ToastrService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -45,24 +50,38 @@ export class LoginComponent {
   ngOnInit(): void { }
 
   login(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      if (this.myForm.invalid) {
-        this.myForm.markAllAsTouched();
-        return;
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+  
+    const users = this.apiUserData.getApiUsers(); 
+  
+    const foundUser = users.find(user => 
+      user.email === this.myForm.value.usuario && 
+      user.password === this.myForm.value.contrasena
+    );
+  
+    if (foundUser) {
+      const sessionToken = 'mockToken123'; 
+  
+     this.auth.almacenarDatosEnSessionStorage(
+        sessionToken,
+        foundUser.email, 
+        foundUser.user, 
+        foundUser.rol
+      );
+  
+      console.log('ta bien')
+  
+      if (foundUser.rol === 'profesor') {
+        this.router.navigateByUrl('/profesor/cursos');
+      } else if (foundUser.rol === 'alumno') {
+        console.log('si entro al if')
+        this.router.navigateByUrl('/alumno/actividades');
       }
-
-      // Verificamos si el usuario y la contraseña coinciden con los valores predeterminados
-      const usuarioIngresado = this.myForm.value.usuario;
-      const contrasenaIngresada = this.myForm.value.contrasena;
-
-      if (usuarioIngresado === 'Admin' && contrasenaIngresada === 'admin') {
-        // Simula almacenar datos en el servicio de autenticación
-        //this.toastr.success('Logged in successfully', 'Success');
-        this.router.navigateByUrl('/admin/cursos');
-      } else {
-        // Si los datos no coinciden, muestra un error
-        //this.toastr.error('Incorrect username or password', 'Error');
-      }
+    } else {
+      console.log('ta mal')
     }
   }
 

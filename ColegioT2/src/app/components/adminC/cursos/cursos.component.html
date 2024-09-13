@@ -1,1 +1,24 @@
-<p>cursos works!</p>
+<div *ngFor="let curso of cursos.cur" class="cont-flex">
+    <mat-card class="curso-card" appearance="outlined">
+        <mat-card-header>
+        <div mat-card-avatar class="curso-header-image"></div>
+        <mat-card-title>{{curso.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{getAulaNombre(curso.idCur)}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://www.vocaeditorial.com/blog/media/plan-lector-primaria-1175x783.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content style="max-height: 50px;">
+        <p>{{curso.descripcion}}</p>
+        </mat-card-content>
+        <mat-card-actions class="btnC">
+        <button mat-button>Ingresar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+
+    
+
+
+  
+
+  

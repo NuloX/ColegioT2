@@ -1,0 +1,34 @@
+.cont-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+  
+.curso-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.btnC{
+    display: flexbox;
+    justify-content: end;
+    padding-right: 15px;
+}
+
+.cont-flex{
+    display: flexbox;
+    flex-direction: row;
+    gap: 10px;
+}
+
+mat-card {
+    flex: 1 1 calc(33% - 20px); /* Ajusta el ancho para que se muestren 3 tarjetas por fila */
+    margin: 10px; /* Margen opcional para separación */
+  }
+
+.card-descrip{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

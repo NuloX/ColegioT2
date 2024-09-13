@@ -1,0 +1,23 @@
+.curso-card {
+    max-width: 350px;
+  }
+  
+.curso-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.btnC{
+    align-self: center;
+}
+
+.cont-flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+mat-card {
+    flex: 1 1 calc(33% - 20px); /* Ajusta el ancho para que se muestren 3 tarjetas por fila */
+    margin: 10px; /* Margen opcional para separación */
+  }

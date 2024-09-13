@@ -6,6 +6,10 @@ span{
     cursor: pointer;
     
 }
+.container-fluid{
+    flex-direction: column;
+    justify-content: space-between;
+}
 .nav-link mat-icon {
     margin-bottom: -5px; 
 }
@@ -16,15 +20,14 @@ img{
     margin-top: 10px;
     margin-bottom: 30px;
 }
- mat-icon {
-    margin-top: 10px; 
-}
 a.nav-link{
-    font-family: 'Open sans',sans-serif;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 600;
 }
 .nav-link{
-    color: rgba(117, 117, 117, 1);
+    color:#003F56;
+    
 }
 #log{
     font-size:20px;
@@ -40,11 +43,33 @@ a.nav-link{
     padding: 0.5rem;
 }
 .nav-link.active{
-    background-color: rgba(51, 51, 51, 0.14);
-    border-right: solid  black;
+    background-color: #31708E; /* azul oscuro */
+color: #FFFFFF; /* texto blanco */
+    border-right: solid  #003E55;
     border-radius: 0;
-    color: black;
 }
 .container-fluid{
-    background-color: #A5D8EB;
+    background-color: #A9E1E9;
+}
+#log{
+    margin-bottom: 3rem;
+}
+span{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.img{
+    width: 50%;
+    height:150px;
+    background-image: url("../../../../assets/sombrero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+#cerrar{
+    display: flex;
+    align-items: center;
+    color:#003F56;
 }
