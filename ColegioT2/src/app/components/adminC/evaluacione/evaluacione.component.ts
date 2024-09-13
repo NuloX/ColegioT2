@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { ButtonComponent } from '../../recursos/button/button.component';
 
 @Component({
   selector: 'app-evaluacione',
   standalone: true,
-  imports: [],
+  imports: [[ButtonComponent]],
   templateUrl: './evaluacione.component.html',
-  styleUrl: './evaluacione.component.css'
+  styleUrls: ['./evaluacione.component.css']
 })
 export class EvaluacioneComponent {
-
 }
