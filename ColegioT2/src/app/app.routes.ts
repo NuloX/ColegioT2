@@ -3,6 +3,10 @@ import { ContentLayoutComponent } from './shared/components/content-layout/conte
 import { LoginComponent } from './pages/authentication/login/login.component';
 import { ProfesorGuard } from './shared/guard/profesor.guard';
 import { AlumnoGuard } from './shared/guard/alumno.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +34,16 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: 'login',
-  }
+  },
+  {
+    path: 'dashboard',
+    component: ContentLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent 
+      }
+    ]
+  },
+   
 ];
