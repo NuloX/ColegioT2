@@ -1,0 +1,40 @@
+
+<div class="filters">
+    <label for="filtroGrado">Filtrar por grado:</label>
+    <select id="filtroGrado" [(ngModel)]="filtroGrado">
+        <option value="">Todos los grados</option>
+        <option *ngFor="let grado of gradosDisponibles" [value]="grado">{{grado}}</option>
+    </select>
+
+    <label for="filtroSeccion">Filtrar por sección:</label>
+    <select id="filtroSeccion" [(ngModel)]="filtroSeccion">
+        <option value="">Todas las secciones</option>
+        <option *ngFor="let seccion of seccionesDisponibles" [value]="seccion">{{seccion}}</option>
+    </select>
+</div>
+
+<app-table>
+    <thead>
+        <tr class="text-start" id="enc">
+            <th *ngFor="let item of encabezadoAlumnos">{{item}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let alumno of alumnosFiltrados()">
+            <td>{{alumno.user}}</td>
+            <td>{{alumno.email}}</td>
+            <td>{{alumno.grado}}</td>
+            <td>{{alumno.seccion}}</td>
+            <td class="text-start">
+                <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <mat-icon style="color: black;">more_vert</mat-icon>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a mat-button >Manage credentials</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</app-table>
