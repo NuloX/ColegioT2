@@ -1,3 +1,11 @@
-#sid{
-    max-width:15rem;padding:0
-}
+
+#sid {
+    position: fixed;
+    max-width:15rem;
+    padding:0;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    z-index: 1000; /* Asegura que el sidebar esté encima de otros elementos */
+    overflow-y: auto; /* Permite que el sidebar tenga scroll si es necesario */
+  }

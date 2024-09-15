@@ -4,7 +4,7 @@ import { NotasComponent } from "./notas/notas.component";
 import { AlumnoGuard } from "../../shared/guard/alumno.guard";
 
 
-export const AlumnRoutes: Routes = [
+export const AlumnosRoutes: Routes = [
   {
     path: 'actividades',
     component: ActividadesComponent,

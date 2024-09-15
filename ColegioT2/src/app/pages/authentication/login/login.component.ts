@@ -55,9 +55,12 @@ export class LoginComponent {
       return;
     }
   
-    const users = this.apiUserData.getApiUsers(); 
+    const alumnos = this.apiUserData.getAlumnos();
+    const profesores = this.apiUserData.getProfesores();
+    const admins = this.apiUserData.getAdmins();
+    const allUsers = [...alumnos, ...profesores, ...admins];
   
-    const foundUser = users.find(user => 
+    const foundUser = allUsers.find(user => 
       user.email === this.myForm.value.usuario && 
       user.password === this.myForm.value.contrasena
     );
@@ -65,25 +68,30 @@ export class LoginComponent {
     if (foundUser) {
       const sessionToken = 'mockToken123'; 
   
-     this.auth.almacenarDatosEnSessionStorage(
+      this.auth.almacenarDatosEnSessionStorage(
         sessionToken,
         foundUser.email, 
         foundUser.user, 
         foundUser.rol
       );
   
-      console.log('ta bien')
+      console.log('ta bien');
   
-      if (foundUser.rol === 'profesor') {
+      if (foundUser.rol === 'Profesor' || foundUser.rol === 'Profesora') {
         this.router.navigateByUrl('/profesor/cursos');
-      } else if (foundUser.rol === 'alumno') {
-        console.log('si entro al if')
+      } else if (foundUser.rol === 'Alumno') {
+        console.log('si entro al if');
         this.router.navigateByUrl('/alumno/actividades');
+      } else if (foundUser.rol === 'admin') {
+        console.log('si entro al if');
+        this.router.navigateByUrl('/admin/Cursos');
       }
     } else {
-      console.log('ta mal')
+      console.log('ta mal');
     }
   }
+  
+  
 
   get userNoValid() {
     return this.myForm.get('usuario')?.invalid && this.myForm.get('usuario')?.touched;

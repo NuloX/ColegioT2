@@ -7,6 +7,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
+import { AdminGuard } from './shared/guard/admin.guard';
 
 export const routes: Routes = [
   {
@@ -17,15 +18,20 @@ export const routes: Routes = [
     path: 'alumno',
     component: ContentLayoutComponent,
     canActivate: [AlumnoGuard],
-    loadChildren: () => import('./components/alumnC/alumn.routes').then(m => m.AlumnRoutes)
+    loadChildren: () => import('./components/alumnC/alumnos.routes').then(m => m.AlumnosRoutes)
   },
   {
     path: 'profesor',
     component: ContentLayoutComponent,
     canActivate: [ProfesorGuard],
-    loadChildren: () => import('./components/adminC/admin.routes').then(m => m.AdminRoutes)
+    loadChildren: () => import('./components/adminC/profesores.routes').then(m => m.ProfesoresRoutes)
   },
-  
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    canActivate: [AdminGuard],
+    loadChildren: () => import('./components/admin/admin.routes').then(m => m.AdminRoutes)
+  },
   {
     path: '',
     redirectTo: 'login',

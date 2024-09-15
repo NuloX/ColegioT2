@@ -29,7 +29,7 @@ export class AuthService {
   obtenerUsuario(): any {
     if (this.isBrowser()) {
       const userString = sessionStorage.getItem('user');
-      return userString ? JSON.parse(userString) : null;  // Solo hace JSON.parse si es un objeto JSON
+      return userString ? JSON.parse(userString) : null;
     }
     return null;
   }
