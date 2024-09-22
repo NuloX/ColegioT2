@@ -23,7 +23,8 @@ export class SidebarComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.rol = this.authService.obtenerUsuario()?.title;
+    const userRole = sessionStorage.getItem('TITLE_EN');
+    this.rol = userRole
   }
   toggleCollapse(collapseNumber: number) {
     if (collapseNumber === 1) {
@@ -42,6 +43,7 @@ export class SidebarComponent implements OnInit{
     if (isPlatformBrowser(this.platformId)) {
 
         this.auth.cerrarSesion();
+        this.router.navigate(['/login']);
           
     } else {
       console.log('ta mal')

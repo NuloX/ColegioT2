@@ -11,13 +11,13 @@ export class AlumnoGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
-    this.authService.showLoader();
-    const user = this.authService.obtenerUsuario(); 
-    
-
-    if (user && user.title === 'alumno') {
+    const userId = this.authService.obtenerIdUsuario();
+    const userRole = sessionStorage.getItem('TITLE_EN');  // Obtén el título o rol directamente
+  
+    if (userId && userRole === 'alumno') {  // Comprueba si el rol es 'profesor'
       return true;
     }
+  
     this.router.navigate(['/login']);
     return false;
   }

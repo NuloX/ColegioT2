@@ -1,0 +1,65 @@
+<h5 mat-dialog-title class="title">Añadir estudiante</h5>
+<hr>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="myForm" class="row g-3 needs-validation" id="myForm" novalidate>
+        <div class="col-lg-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input matInput formControlName="nombre" required placeholder="Nombre...">
+                <mat-error *ngIf="myForm.get('nombre')?.hasError('required')">
+                    Este campo es requerido.
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-lg-6">
+            <label for="apellido" class="form-label">Apellido</label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input matInput formControlName="apellido" required placeholder="Apellido...">
+                <mat-error *ngIf="myForm.get('apellido')?.hasError('required')">
+                    Este campo es requerido.
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-lg-6">
+            <label for="correo" class="form-label">Correo</label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input matInput type="email" formControlName="correo" required placeholder="Correo...">
+                <mat-error *ngIf="myForm.get('correo')?.hasError('required')">
+                    Este campo es requerido.
+                </mat-error>
+                <mat-error *ngIf="myForm.get('correo')?.hasError('email')">
+                    Debe ser un correo electrónico válido.
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-lg-6">
+            <label for="contraseña" class="form-label">Contraseña</label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input matInput type="password" formControlName="contraseña" required placeholder="Contraseña...">
+                <mat-error *ngIf="myForm.get('contraseña')?.hasError('required')">
+                    Este campo es requerido.
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-lg-12">
+            <label for="id_aula" class="form-label">Aula ID</label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input matInput type="number" formControlName="id_aula" required placeholder="ID del aula...">
+                <mat-error *ngIf="myForm.get('id_aula')?.hasError('required')">
+                    Este campo es requerido.
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>CANCELAR</button>
+    <button mat-flat-button [disabled]="myForm.invalid" cdkFocusInitial (click)="crearAlumno()">AGREGAR ALUMNO</button>
+</mat-dialog-actions>
+
+
