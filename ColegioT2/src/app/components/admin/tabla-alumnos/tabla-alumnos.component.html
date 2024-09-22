@@ -11,6 +11,8 @@
         <option value="">Todas las secciones</option>
         <option *ngFor="let seccion of seccionesDisponibles" [value]="seccion">{{seccion}}</option>
     </select>
+
+    <button mat-button (click)="openDialog()" style="background-color: black;color: white;border-radius: 10px; padding: 5px 10px;">Añadir estudiante</button>
 </div>
 
 <app-table>

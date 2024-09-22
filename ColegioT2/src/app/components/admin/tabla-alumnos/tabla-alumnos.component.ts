@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ApiUserDataService } from '../../../shared/services/apiUserData.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { AddAlumnoComponent } from '../add-alumno/add-alumno.component';
 
 @Component({
   selector: 'app-tabla-alumnos',
@@ -23,11 +24,20 @@ export class TablaAlumnosComponent {
   gradosDisponibles: string[] = [];
   seccionesDisponibles: string[] = [];
 
-  constructor(private dataService: ApiUserDataService) { }
+  constructor(private dataService: ApiUserDataService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.alumnos = this.dataService.getAlumnos();
     this.cargarFiltros();
+  }
+  openDialog() {
+    console.log('Opening dialog...');
+    const dialogRef = this.dialog.open(AddAlumnoComponent); // Abre el diálogo
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed'); // Mensaje cuando se cierra el diálogo
+    });
+    console.log('Dialog opened'); // Mensaje después de abrir el diálogo
   }
 
   cargarFiltros() {

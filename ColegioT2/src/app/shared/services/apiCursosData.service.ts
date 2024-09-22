@@ -41,6 +41,7 @@ export class ApiCursosDataService {
         }
     ];
 
+    // Método para obtener cursos
     getApiCursos() {
         return this.cursos;
     }
