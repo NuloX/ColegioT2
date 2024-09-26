@@ -1,0 +1,304 @@
+section {
+    position: relative;
+    /* Necesario para que el botón absoluto se posicione dentro de esta sección */
+    width: 100%;
+}
+
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+    justify-content: flex-end;
+    /* Alinea los elementos a la derecha */
+}
+
+.example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea los elementos a la derecha */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    /* Ajusta el ancho del contenedor del botón */
+    position: absolute;
+    /* Botón absoluto para que se coloque en la esquina */
+    right: 0;
+    /* Lo coloca en la esquina derecha */
+    top: -40px;
+    /* Ajusta este valor según cuánto quieras mover hacia arriba */
+}
+
+.right-button {
+    margin-right: 16px;
+}
+
+.custom-font {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* Ajustar tamaño del botón */
+.large-button {
+    height: 45px;
+    /* Incrementa la altura del botón */
+    min-width: 180px;
+    /* Incrementa el ancho mínimo */
+    font-size: 1.1em;
+    /* Aumenta el tamaño de la fuente del botón */
+    padding-left: 12px;
+    /* Aumenta el padding a la izquierda */
+    padding-right: 12px;
+    /* Aumenta el padding a la derecha */
+}
+
+/* Ajustar tamaño del texto */
+.large-text {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2em;
+    /* Aumenta el tamaño del texto */
+    font-weight: 600;
+}
+
+/* Ajustar tamaño del ícono */
+.large-icon {
+    font-size: 1.2em;
+    /* Incrementa el tamaño del ícono */
+    margin-right: 1.4px;
+    /* Asegura que haya espacio suficiente entre el ícono y el texto */
+    vertical-align: middle;
+    /* Alineación vertical */
+    margin-top: 3px;
+    /* Ajusta el ícono hacia abajo */
+}
+
+.modal-title {
+    text-align: center;
+    margin-top: 40px;
+    /* Espaciado entre cada grupo */
+    margin-bottom: 40px;
+    /* Espaciado entre cada grupo */
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 2em;
+    /* Tamaño del título, puedes ajustar según necesites */
+    font-weight: 600;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    /* Espaciado entre cada grupo */
+}
+
+.form-group p {
+    margin-top: -5px;
+    /* Espaciado entre cada grupo */
+    flex: 1;
+    /* Ocupa el espacio necesario a la izquierda */
+    font-size: 1.5rem;
+    /* Aumenta el tamaño de la tipografía para los textos de las etiquetas */
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.form-group mat-form-field {
+    flex: 2;
+    /* Ocupa el doble de espacio a la derecha */
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente los botones */
+    margin-top: -10px;
+    /* Añade un poco de espacio por encima de los botones */
+}
+
+.dialog-button {
+    font-size: 1.5em;
+    /* Aumenta el tamaño de la fuente */
+    font-weight: bold;
+    /* Hace el texto más grueso */
+    padding: 10px 20px;
+    /* Aumenta el espacio dentro del botón */
+    margin: 0 10px;
+    /* Añade espacio entre los botones */
+}
+
+::ng-deep .mat-dialog-container.custom-dialog-container {
+    min-width: 1800px !important;
+    max-width: 1800px !important;
+}
+
+.custom-dialog-container {
+    max-width: 300000px !important;
+    width: 1800px !important;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-full-width2 {
+    width: 100%;
+    height: 65%;
+}
+
+.custom-textarea {
+    width: 100%;
+    /* O el ancho que desees, por ejemplo 80% */
+    min-height: 100px;
+    /* Ajusta la altura según sea necesario */
+}
+
+/* Asegura que el contenedor de inputs tenga suficiente espacio */
+.dynamic-inputs {
+    margin-top: 20px;
+}
+
+.input-container {
+    margin-bottom: 10px;
+}
+
+.wide-select {
+    min-width: 300px;
+    /* Ajusta este valor según tus necesidades */
+    width: 100%;
+    /* Esto lo ajustará para ocupar el ancho del contenedor */
+}
+
+mat-form-field {
+    min-width: 150px;
+    /* Ajusta este valor para todos los select */
+    width: 50%;
+}
+
+.fancy {
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 1.25em 2em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 13px;
+    width: 240px;
+    /* Ajusta el ancho según sea necesario */
+    margin-right: auto;
+    /* Empuja el botón hacia la izquierda */
+}
+
+.fancy::before {
+    content: " ";
+    width: 1.5625rem;
+    height: 2px;
+    background: black;
+    top: 50%;
+    left: 1.5em;
+    position: absolute;
+    transform: translateY(-50%);
+    transform-origin: center;
+    transition: background 0.3s linear, width 0.3s linear;
+}
+
+.fancy .text {
+    font-size: 1.125em;
+    line-height: 1.33333em;
+    padding-left: 4em;
+    display: block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+.fancy .top-key {
+    height: 2px;
+    width: 1.5625rem;
+    top: -2px;
+    left: 0.625rem;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+    height: 2px;
+    width: 1.5625rem;
+    right: 1.875rem;
+    bottom: -2px;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+    height: 2px;
+    width: 0.625rem;
+    right: 0.625rem;
+    bottom: -2px;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy:hover {
+    color: white;
+    background: black;
+}
+
+.fancy:hover::before {
+    width: 0.9375rem;
+    background: white;
+}
+
+.fancy:hover .text {
+    color: white;
+    padding-left: 1.5em;
+}
+
+.fancy:hover .top-key {
+    left: -2px;
+    width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+    right: 0;
+    width: 0;
+}
+
+/* Estilos para checkbox */
+
+.example-section {
+    margin: 12px 0;
+}
+
+/*  */

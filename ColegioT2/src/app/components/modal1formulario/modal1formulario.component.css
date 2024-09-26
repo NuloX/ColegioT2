@@ -33,6 +33,8 @@ section {
     /* Botón absoluto para que se coloque en la esquina */
     right: 0;
     /* Lo coloca en la esquina derecha */
+    top: -40px;
+    /* Ajusta este valor según cuánto quieras mover hacia arriba */
 }
 
 .right-button {
@@ -48,11 +50,11 @@ section {
 
 /* Ajustar tamaño del botón */
 .large-button {
-    height: 64px;
+    height: 45px;
     /* Incrementa la altura del botón */
-    min-width: 220px;
+    min-width: 180px;
     /* Incrementa el ancho mínimo */
-    font-size: 1.5em;
+    font-size: 1.1em;
     /* Aumenta el tamaño de la fuente del botón */
     padding-left: 12px;
     /* Aumenta el padding a la izquierda */
@@ -71,9 +73,9 @@ section {
 
 /* Ajustar tamaño del ícono */
 .large-icon {
-    font-size: 1em;
+    font-size: 1.2em;
     /* Incrementa el tamaño del ícono */
-    margin-right: 1.5px;
+    margin-right: 1.4px;
     /* Asegura que haya espacio suficiente entre el ícono y el texto */
     vertical-align: middle;
     /* Alineación vertical */
@@ -164,4 +166,17 @@ section {
 
 .input-container {
     margin-bottom: 10px;
+}
+
+.wide-select {
+    min-width: 300px;
+    /* Ajusta este valor según tus necesidades */
+    width: 100%;
+    /* Esto lo ajustará para ocupar el ancho del contenedor */
+}
+
+mat-form-field {
+    min-width: 150px;
+    /* Ajusta este valor para todos los select */
+    width: 50%;
 }
