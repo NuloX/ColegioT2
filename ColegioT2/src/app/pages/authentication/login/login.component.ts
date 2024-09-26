@@ -11,6 +11,8 @@ import { PLATFORM_ID} from '@angular/core';
 import { ApiUserDataService } from '../../../shared/services/apiUserData.service';
 import { AuthService } from '../../../shared/services/auth.service';
 import { Console } from 'console';
+import { Parameter } from '../../../shared/model/parameter';
+import { apiloginService } from '../../../shared/services/admin/apiloginData.service';
 
 @Component({
   selector: 'app-login',
@@ -33,8 +35,9 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private logindata:apiloginService,
     private apiUserData:ApiUserDataService,
-    private auth:AuthService,
+    private authservice:AuthService,
     //private toastr: ToastrService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -50,40 +53,55 @@ export class LoginComponent {
   ngOnInit(): void { }
 
   login(): void {
-    if (this.myForm.invalid) {
-      this.myForm.markAllAsTouched();
-      return;
-    }
-  
-    const users = this.apiUserData.getApiUsers(); 
-  
-    const foundUser = users.find(user => 
-      user.email === this.myForm.value.usuario && 
-      user.password === this.myForm.value.contrasena
-    );
-  
-    if (foundUser) {
-      const sessionToken = 'mockToken123'; 
-  
-     this.auth.almacenarDatosEnSessionStorage(
-        sessionToken,
-        foundUser.email, 
-        foundUser.user, 
-        foundUser.rol
-      );
-  
-      console.log('ta bien')
-  
-      if (foundUser.rol === 'profesor') {
-        this.router.navigateByUrl('/profesor/cursos');
-      } else if (foundUser.rol === 'alumno') {
-        console.log('si entro al if')
-        this.router.navigateByUrl('/alumno/actividades');
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.myForm.invalid) {
+        this.myForm.markAllAsTouched();
+        return;
       }
-    } else {
-      console.log('ta mal')
+  
+      const parametro: Parameter = new Parameter();
+      parametro.method = 'POST';
+      parametro.url = 'authRoutes';
+      parametro.data = {
+        "correo": this.myForm.value.usuario,
+        "contraseña": this.myForm.value.contrasena
+      };
+  
+      this.logindata.LoginIngreso(parametro).subscribe(
+        (response: any) => {
+          if (response.token && response.token.token && response.token.id_usuario && response.token.rol) {
+            // Almacenar el token y la información adicional del usuario
+            this.authservice.almacenarDatosEnSessionStorage(
+              response.token.token,  // El JWT token
+              response.token.id_usuario,  // El ID del usuario
+              this.myForm.value.usuario,  // El username (opcionalmente desde el formulario)
+              response.token.rol  // El rol del usuario
+            );
+  
+            // Lógica de redirección basada en el rol
+            const userRole = response.token.rol;
+            if (userRole === 'profesor' ) {
+              this.router.navigateByUrl('/profesor/cursos');
+            } else if (userRole === 'alumno') {
+              console.log('si entro al if Alumno');
+              this.router.navigateByUrl('/alumno/actividades');
+            } else if (userRole === 'administrador') {
+              console.log('si entro al if admin');
+              this.router.navigateByUrl('/admin/Cursos');
+            }
+          } else {
+            // Manejar el caso donde no haya token o datos del usuario en la respuesta
+          }
+        },
+        (error) => {
+          // Manejar errores en la respuesta del servidor
+        }
+      );
     }
   }
+  
+  
+  
 
   get userNoValid() {
     return this.myForm.get('usuario')?.invalid && this.myForm.get('usuario')?.touched;

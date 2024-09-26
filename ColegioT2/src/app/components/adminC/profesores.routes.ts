@@ -4,7 +4,7 @@ import { EvaluacioneComponent } from "./evaluacione/evaluacione.component";
 import { ProfesorGuard } from "../../shared/guard/profesor.guard";
 
 
-export const AdminRoutes: Routes = [
+export const ProfesoresRoutes: Routes = [
   {
     path: 'cursos',
     canActivate: [ProfesorGuard],

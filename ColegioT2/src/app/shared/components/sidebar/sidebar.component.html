@@ -6,7 +6,8 @@
             </div>
         </a>
         <ul class="nav nav-pills flex-column" id="menu">
-            <li class="nav-item" *ngIf="rol === 'profesor'">
+              <!-- Menú para profesores -->
+              <li class="nav-item" *ngIf="rol === 'profesor'">
                 <a class="nav-link" routerLinkActive="active" routerLink="/profesor/cursos">
                     <mat-icon>book</mat-icon><span class="d-sm-inline">Cursos</span>
                 </a>
@@ -27,7 +28,24 @@
                 <a class="nav-link" routerLinkActive="active" routerLink="/alumno/notas">
                     <mat-icon>school</mat-icon><span class="d-sm-inline">Notas</span>
                 </a>
-            </li>
+              </li>
+
+              <!-- Menú para administrador -->
+              <li class="nav-item" *ngIf="rol === 'administrador'">
+                <a class="nav-link" routerLinkActive="active" routerLink="/admin/Cursos">
+                  <mat-icon>chrome_reader_mode</mat-icon><span class="d-sm-inline">Cursos</span>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="rol === 'administrador'">
+                <a class="nav-link" routerLinkActive="active" routerLink="/admin/Profesores">
+                    <mat-icon>school</mat-icon><span class="d-sm-inline">Profesores</span>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="rol === 'administrador'">
+                <a class="nav-link" routerLinkActive="active" routerLink="/admin/Alumnos">
+                    <mat-icon>school</mat-icon><span class="d-sm-inline">Alumnos</span>
+                </a>
+              </li>
         </ul>
     </div>
     <a class="d-flex text-decoration-none text-black p-4">

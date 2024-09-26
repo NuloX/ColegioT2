@@ -1,0 +1,30 @@
+<app-table>
+    <thead>
+      <tr class="text-start" id="enc">
+        <th *ngFor="let item of encabezadoCursos">{{item}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let curso of apiDataCursos">
+        <td>{{curso.nom_curso}}</td>
+        <td>{{curso.descripcion}}</td>
+        
+        <td>
+          <div *ngFor="let asignacion of curso.asignaciones">
+            <ul>
+              <li>{{asignacion.grado}} {{asignacion.seccion}}
+                <ul>
+                  <li *ngFor="let profesorEmail of asignacion.profesores">
+                    {{ getProfesorNombre(profesorEmail) }}
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+</app-table>
+
+
+  

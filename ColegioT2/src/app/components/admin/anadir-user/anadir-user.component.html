@@ -1,0 +1,45 @@
+<form (ngSubmit)="agregarCurso()" #cursoForm="ngForm">
+    <div class="mb-3">
+      <label for="nom_curso" class="form-label">Nombre del Curso</label>
+      <input type="text" id="nom_curso" name="nom_curso" class="form-control" ngModel required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea id="descripcion" name="descripcion" class="form-control" ngModel required></textarea>
+    </div>
+  
+    <div class="mb-3">
+      <label for="asignaciones" class="form-label">Asignaciones</label>
+      <div *ngFor="let asignacion of asignaciones; let i = index">
+        <div class="row">
+          <div class="col">
+            <select class="form-select" name="grado{{i}}" [(ngModel)]="asignacion.grado" required>
+              <option *ngFor="let item of gradosYSecciones" [value]="item.grado">
+                {{item.grado}}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-select" name="seccion{{i}}" [(ngModel)]="asignacion.seccion" required>
+              <option *ngFor="let seccion of getSeccionesPorGrado(asignacion.grado)" [value]="seccion">
+                {{seccion}}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <select multiple class="form-select" name="profesores{{i}}" [(ngModel)]="asignacion.profesores">
+              <option *ngFor="let profesor of profesores" [value]="profesor.user">
+                {{profesor.nombre}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <button type="button" (click)="eliminarAsignacion(i)">Eliminar Asignación</button>
+      </div>
+      <button type="button" (click)="agregarAsignacion()">Agregar Asignación</button>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Agregar Curso</button>
+  </form>
+  
